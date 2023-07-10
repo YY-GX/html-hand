@@ -1,0 +1,6 @@
+# torch==0.4.1
+opencv-python
+# pickle
+numpy
+imageio
+pytorch3d==0.1

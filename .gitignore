@@ -1,0 +1,5 @@
+*.zip
+SMPLH_female.pkl
+SMPLH_male.pkl
+TextureBasis
+TextureSet
