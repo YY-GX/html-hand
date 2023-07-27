@@ -1,0 +1,11 @@
+--2023-07-10 11:49:24--  https://www.dropbox.com/scl/fo/05zuck7rqkyg0ovk229g2/h?rlkey=wp4wvi110z86zvz1p6a979hgc
+Resolving www.dropbox.com (www.dropbox.com)... 162.125.9.18, 2620:100:601f:18::a27d:912
+Connecting to www.dropbox.com (www.dropbox.com)|162.125.9.18|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: 'h?rlkey=wp4wvi110z86zvz1p6a979hgc'
+
+          h?rlkey=wp     [<=>                    ]       0  --.-KB/s               h?rlkey=wp4wvi110z86     [ <=>                   ] 263.78K  1.61MB/s    in 0.2s    
+
+2023-07-10 11:49:25 (1.61 MB/s) - 'h?rlkey=wp4wvi110z86zvz1p6a979hgc' saved [270106]
+

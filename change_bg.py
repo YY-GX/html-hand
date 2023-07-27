@@ -40,9 +40,12 @@ import numpy as np
 import os
 
 # bg_folder = '/home/yygx/sun_dataset/images/b/bedroom/'
-bg_folder = '/home/yygx/sun_dataset/images/total/'
-hands_folder = "dataset_10000_256_left_right_no_wrists/rendered_hand/"
-dst_folder = "dataset_10000_256_left_right_no_wrists/dataset_change_bg/"
+bg_folder = '../Sun_dataset/images/'
+# hands_folder = "dataset_10000_256_left_right_no_wrists/rendered_hand/"
+# dst_folder = "dataset_10000_256_left_right_no_wrists/dataset_change_bg/"
+
+hands_folder = "dataset_10000_256_left_right_no_wrists_fix_angle/rendered_hand/"
+dst_folder = "dataset_10000_256_left_right_no_wrists_fix_angle/dataset_change_bg/"
 
 bg_imgs = os.listdir(bg_folder)
 hands_imgs = os.listdir(hands_folder)
@@ -57,6 +60,8 @@ while cnt_hands < len(hands_imgs):
     frame = cv2.imread(hands_folder + hands_imgs[cnt_hands])
     image = cv2.imread(bg_folder + bg_imgs[cnt_bg])
 
+    if "_right" in hands_imgs[cnt_hands]:
+        frame = cv2.rotate(frame, cv2.ROTATE_180)
     cnt_bg += 1
     if image is None:
         print("image is None")

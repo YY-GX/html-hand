@@ -3,3 +3,6 @@ SMPLH_female.pkl
 SMPLH_male.pkl
 TextureBasis
 TextureSet
+dataset_10000_256_left_right_no_wrists_fix_angle
+Texture*
+new_tex_img.pt

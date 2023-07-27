@@ -56,7 +56,7 @@ class MANO_SMPL(nn.Module):
             with open(mano_pkl_path, 'rb') as f:
                 model = pickle.load(f, encoding='latin1')
         except:
-            print("cannot find"+ mano_pkl_path + ". Please download the MANO_RIGHT.pkl first from https://mano.is.tue.mpg.de/ " )
+            print("cannot find "+ mano_pkl_path + ". Please download the MANO_RIGHT.pkl first from https://mano.is.tue.mpg.de/ " )
             exit()
         self.faces = model['f']
         
