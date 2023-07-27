@@ -47,8 +47,9 @@ bg_folder = '../Sun_dataset/images/'
 hands_folder = "dataset_10000_256_left_right_no_wrists_fix_angle/rendered_hand/"
 dst_folder = "dataset_10000_256_left_right_no_wrists_fix_angle/dataset_change_bg/"
 
-bg_imgs = os.listdir(bg_folder)
-hands_imgs = os.listdir(hands_folder)
+folder = "dataset_10000_256_left_right_no_wrists_fix_angle/cubes/"
+
+hands_imgs = os.listdir(folder)
 
 
 cnt_hands = 0
@@ -57,30 +58,32 @@ while cnt_hands < len(hands_imgs):
 # for i in range(865, len(hands_imgs)):
     if cnt_hands % 1000 == 0:
         print(cnt_hands)
-    frame = cv2.imread(hands_folder + hands_imgs[cnt_hands])
-    image = cv2.imread(bg_folder + bg_imgs[cnt_bg])
+    frame = cv2.imread(folder + hands_imgs[cnt_hands])
 
     if "_right" in hands_imgs[cnt_hands]:
         frame = cv2.rotate(frame, cv2.ROTATE_180)
-    cnt_bg += 1
-    if image is None:
-        print("image is None")
-        continue
+        cv2.imwrite("dataset_10000_256_left_right_no_wrists_fix_angle/cubes/" + hands_imgs[cnt_hands], frame)
 
-    image_size_shortest = np.min([image.shape[0], image.shape[1]])
-    image = image[:image_size_shortest, :image_size_shortest, :]
-    image = cv2.resize(image, (256, 256))
 
-    u_green = np.array([19, 235, 34])
-    l_green = np.array([17, 233, 32])
-
-    mask = cv2.inRange(frame, l_green, u_green)
-    res = cv2.bitwise_and(frame, frame, mask=mask)
-
-    f = frame - res
-    f = np.where(f == 0, image, f)
-
-    cv2.imwrite(dst_folder + hands_imgs[cnt_hands], f)
+    # cnt_bg += 1
+    # if image is None:
+    #     print("image is None")
+    #     continue
+    #
+    # image_size_shortest = np.min([image.shape[0], image.shape[1]])
+    # image = image[:image_size_shortest, :image_size_shortest, :]
+    # image = cv2.resize(image, (256, 256))
+    #
+    # u_green = np.array([19, 235, 34])
+    # l_green = np.array([17, 233, 32])
+    #
+    # mask = cv2.inRange(frame, l_green, u_green)
+    # res = cv2.bitwise_and(frame, frame, mask=mask)
+    #
+    # f = frame - res
+    # f = np.where(f == 0, image, f)
+    #
+    # cv2.imwrite(dst_folder + hands_imgs[cnt_hands], f)
 
     cnt_hands += 1
 
