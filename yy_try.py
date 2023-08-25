@@ -145,10 +145,12 @@ def render_img_rotate(verts, faces_idx, faces_uvs, verts_uvs, new_tex_img, kp, a
 
     # yy: set background color
     if is_bicolor:
-        blending.BlendParams.background_color = (33 / 255, 234 / 255, 18 / 255)
+        # blending.BlendParams.background_color = (33 / 255, 234 / 255, 18 / 255)
+        blending.BlendParams.background_color = (255 / 255, 255 / 255, 255 / 255)
     else:
         # blending.BlendParams.background_color = (.8, .8, .8)
-        blending.BlendParams.background_color = (33 / 255, 234 / 255, 18 / 255)
+        # blending.BlendParams.background_color = (33 / 255, 234 / 255, 18 / 255)
+        blending.BlendParams.background_color = (255 / 255, 255 / 255, 255 / 255)
 
 
 
@@ -224,7 +226,8 @@ def render_cubes(verts, faces_idx, faces_uvs, verts_uvs, new_tex_img, kp, angle,
 
     # yy: set background color
     if is_bicolor:
-        blending.BlendParams.background_color = (33 / 255, 234 / 255, 18 / 255)
+        # blending.BlendParams.background_color = (33 / 255, 234 / 255, 18 / 255)
+        blending.BlendParams.background_color = (1, 1, 1)
     else:
         blending.BlendParams.background_color = (1, 1, 1)
 

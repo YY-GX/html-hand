@@ -376,14 +376,14 @@ if __name__ == '__main__':
     #                 (image_cubes[0, ..., :3].cpu().detach().numpy() * 255).astype(int)[..., ::-1])
     #     np.save("final_imgs/dorsal/kp_{}.npy".format(str(i).zfill(5)), np.squeeze(joints))
 
-    dir_name = 'dataset_10000_256_left_right_no_wrists_fix_angle'
+    dir_name = 'dataset_10000_256_left_right_no_wrists_aug24'
     dir_ls = ['{}/rendered_hand'.format(dir_name), '{}/bicolor_hand'.format(dir_name),
               '{}/texture'.format(dir_name), '{}/cubes'.format(dir_name), '{}/kp'.format(dir_name)]
     for dir_pth in dir_ls:
         if not os.path.isdir(dir_pth):
             os.makedirs(dir_pth)
 
-    DATASET_SIZE = 10000
+    DATASET_SIZE = 10
     angle_range = np.arange(-90, 270, 1)
     # angle_range = np.array([0])
 
@@ -413,13 +413,13 @@ if __name__ == '__main__':
         pose_param = torch.unsqueeze(gen_rand_params(45, 3), 0)  # .cuda()
         shape_param = torch.unsqueeze(gen_rand_params(10, 3), 0)  # .cuda()
         tex_param = torch.unsqueeze(gen_rand_params(101, 3), 0)  # .cuda()
-        # while True:
-            # angle = np.random.choice(angle_range, 1)[0]
-            # axis = np.random.choice(["X", "Y", "Z"], 1)[0]
-            # if not (axis == "Z" and (((angle >= -90) and (angle <= -45)) or ((angle >= 200) and (angle <= 270)))):
+        while True:
+            angle = np.random.choice(angle_range, 1)[0]
+            axis = np.random.choice(["X", "Y", "Z"], 1)[0]
+            if not (axis == "Z" and (((angle >= -90) and (angle <= -45)) or ((angle >= 200) and (angle <= 270)))):
             # if not axis == "Z" or not axis == "Y":
-                # break
-        axis = "X"  # yy: select X if we only wanna rotate around X axis
+                break
+        # axis = "X"  # yy: select X if we only wanna rotate around X axis
         angle = np.random.choice(angle_range, 1)[0]
         print(i, axis, angle)
         images_ori, images_edited_texture, image_cubes, vertices, new_tex_img, joints = \
