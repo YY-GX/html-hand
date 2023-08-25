@@ -418,7 +418,7 @@ if __name__ == '__main__':
             axis = np.random.choice(["X", "Y", "Z"], 1)[0]
             # if not (axis == "Z" and (((angle >= -90) and (angle <= -45)) or ((angle >= 200) and (angle <= 270)))):
             # if not axis == "Z" or not axis == "Y":
-            if not axis == "Z":
+            if not axis == "Y":
                 break
         # axis = "X"  # yy: select X if we only wanna rotate around X axis
         angle = np.random.choice(angle_range, 1)[0]
