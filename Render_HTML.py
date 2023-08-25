@@ -383,7 +383,7 @@ if __name__ == '__main__':
         if not os.path.isdir(dir_pth):
             os.makedirs(dir_pth)
 
-    DATASET_SIZE = 10
+    DATASET_SIZE = 100
     angle_range = np.arange(-90, 270, 1)
     # angle_range = np.array([0])
 
