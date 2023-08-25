@@ -383,7 +383,7 @@ if __name__ == '__main__':
         if not os.path.isdir(dir_pth):
             os.makedirs(dir_pth)
 
-    DATASET_SIZE = 100
+    DATASET_SIZE = 10000
     angle_range = np.arange(-90, 270, 1)
     # angle_range = np.array([0])
 
@@ -425,6 +425,7 @@ if __name__ == '__main__':
         print(i, axis, angle)
         images_ori, images_edited_texture, image_cubes, vertices, new_tex_img, joints = \
             renderer.render_hand(pose_param, shape_param, tex_param, angle, axis)
+
         cv2.imwrite("{}/rendered_hand/{}_{}.png".format(folder_name, str(i).zfill(5), hand_type),
                     (images_ori[0, ..., :3].cpu().numpy() * 255).astype(int)[..., ::-1])
         cv2.imwrite("{}/bicolor_hand/{}_{}.png".format(folder_name, str(i).zfill(5), hand_type),
